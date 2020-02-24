@@ -181,7 +181,9 @@ public class FingerprintDialog extends DialogFragment implements FingerprintHand
     public void onCancelled() {
         this.isAuthInProgress = false;
         this.mFingerprintHandler.endAuth();
-        this.dialogCallback.onCancelled();
+        if (this.dialogCallback != null) {
+            this.dialogCallback.onCancelled();
+        }
         dismiss();
     }
 }
